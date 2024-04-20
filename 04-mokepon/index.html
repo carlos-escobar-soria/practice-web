@@ -5,50 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOKEPON!</title>
     <script src="./javascript/mokepon.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <h1> MOKEPON </h1>
+    <h1 class="titulo" id=""> MOKEPON </h1>
 
-    <section id="select-mask">
+    <section  class="content-flex-center box-model" id="select-mask">
         <h2>Elige tu mascota:</h2>
 
-        <label for="hipoge">Hipoge</label>
-        <input type="radio" id="hipoge" name="mascota" />
-
-        <label for="capipepo">Capipepo</label>
-        <input type="radio" id="capipepo" name="mascota">
-
-        <label for="langostelvis">Langostelvis</label>
-        <input type="radio" id="langostelvis" name="mascota">
-
-        <label for="tucapalma">Tucapalma</label>
-        <input type="radio" id="tucapalma" name="mascota">
-
-        <label for="pidos">Pidos</label>
-        <input type="radio" id="pidos" name="mascota">
-
-        <button id="boton-mascota">Seleccionar</button>
+        <div class="tarjetas">
+            <label class="tarjeta-mokepon"for="hipoge">Hipoge</label>
+            <input type="radio" id="hipoge" name="mascota" />
+    
+            <label class="tarjeta-mokepon"for="capipepo">Capipepo</label>
+            <input type="radio" id="capipepo" name="mascota">
+    
+            <label class="tarjeta-mokepon"for="langostelvis">Langostelvis</label>
+            <input type="radio" id="langostelvis" name="mascota">
+    
+            <label class="tarjeta-mokepon"for="tucapalma">Tucapalma</label>
+            <input type="radio" id="tucapalma" name="mascota">
+    
+            <label class="tarjeta-mokepon"for="pidos">Pidos</label>
+            <input type="radio" id="pidos" name="mascota">
+    
+        </div>
+        <button class= "btn btn-primary"id="boton-mascota">Seleccionar</button>
     </section>
 
     <section id="select-attack">
         <h2>Elige tu ataque:</h2>
-        <p>Tu mascota <span id="name"></span> tiene <span id="live">3</span> vidas</p>
-        <p>La mascota <span id="name-mascota-enemigo"></span> del enemigo tiene <span id="live-enemigo">3</span> vidas</p>
-        <p>
-
+        <div>
             <button id="boton-fuego">Fuego</button>
             <button id="boton-agua">Agua</button>
             <button id="boton-tierra">Tierra</button>
-        </p>
+        </div>
+        
+        <div>
+            <section id="mensajes">
+                <p>Tu mascota atacó con <span></span>, las mascotas del enemigo atacó con <span id="ataque-enemigo"></span> - GANASTE </p>
+            </section>
+        
+            <section>
+                <button id="boton-reiniciar"> Reiniciar</button>
+            </section>
+        </div>
+
+        <div>
+            <p>Tu mascota <span id="name"></span> tiene <span id="live">3</span> vidas</p>
+            <p>La mascota <span id="name-mascota-enemigo"></span> del enemigo tiene <span id="live-enemigo">3</span> vidas</p>
+        </div>
+    
     </section>
 
-    <section id="mensajes">
-        <p>Tu mascota atacó con <span></span>, las mascotas del enemigo atacó con <span id="ataque-enemigo"></span> - GANASTE </p>
-    </section>
-
-    <section>
-        <button id="boton-reiniciar"> Reiniciar</button>
-    </section>
+   
     
 </body>
 </html>

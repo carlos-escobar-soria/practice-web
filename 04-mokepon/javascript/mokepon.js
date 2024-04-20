@@ -9,8 +9,6 @@ let ataqueAleatorioEnemigo = "";
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
-
-
 function iniciarJuego() {
     let botonMascota = document.getElementById('boton-mascota');
     botonMascota.addEventListener('click', selectMascotaPlayer);

@@ -1,0 +1,58 @@
+.titulo {
+    color: hotpink;
+    width: 310px;
+    height: 50px;
+    background-color: teal;
+}
+
+/* label {
+    background-color: tomato;
+
+}
+
+
+
+button {
+    background-color: violet;
+} */
+.content-flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* justify-items: center; */
+}
+
+.box-model {
+    margin: 5px;
+}
+
+.tarjeta-mokepon {
+    width: 100px;
+    height: 100px;
+    background: aquamarine;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 20px ;
+
+}
+input {
+    display: none;
+}
+
+.btn{
+    width: 25%;
+    padding: 1%;
+    border: none;
+    border-radius: 50px;
+}
+.btn-primary{
+    background-color: skyblue;
+    color : white;
+}
+.tarjetas {
+    display:flex;
+    gap:10px
+}
