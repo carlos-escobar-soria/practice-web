@@ -1,24 +1,68 @@
-// alert("hola, mundo js ");
 
-function aleatorio(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+const botonMascota = document.getElementById('boton-mascota');
+const botonFuego = document.getElementById('boton-fuego') ;
+const botonAgua = document.getElementById('boton-agua') ;
+const botonTierra = document.getElementById('boton-tierra') ;
+const botonReiniciar = document.getElementById('boton-reiniciar') ;
+
+const hipoge = document.getElementById('hipoge');
+const capipepo = document.getElementById('capipepo');
+const langostelvis = document.getElementById('langostelvis');
+const tucapalma = document.getElementById('tucapalma');
+const pidos = document.getElementById('pidos');
+const mascotaJugador = document.getElementById('name');
+
+const nameMascotaEnemigo = document.getElementById('name-mascota-enemigo');
+const mensajes = document.getElementById('mensajes');
+
+const liveEnemigo = document.getElementById('live-enemigo');
+const live = document.getElementById('live');
 
 let ataqueJugador = '';
 let ataqueAleatorioEnemigo = "";
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
+class Mokemon{
+    
+    constructor(name, photo, vida) {
+        this._name = name;
+        this._photo = photo;
+        this._vida = vida;
+    }
+}
+
+let mokemonHipodoge = new Mokemon("hipodoge", "../assert/mokepons_mokepon_hipodoge_attack.png", 3);
+let mokemonCapipepo = new Mokemon("Capipepo", "../assert/mokepons_mokepon_capipepo_attack.png", 3);
+let mokemonRatigueya = new Mokemon("Ratigueya", "../assert/mokepons_mokepon_ratigueya_attack.png", 3);
+
+let mokepones = [];
+mokepones = [...mokepones, mokemonHipodoge, mokemonCapipepo, mokemonRatigueya ];
+
+
+console.log(mokepones);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function iniciarJuego() {
-    let botonMascota = document.getElementById('boton-mascota');
     botonMascota.addEventListener('click', selectMascotaPlayer);
-    let botonFuego = document.getElementById('boton-fuego') ;
     botonFuego.addEventListener('click', ataqueFuego);
-    let botonAgua = document.getElementById('boton-agua') ;
     botonAgua.addEventListener('click', ataqueAgua);
-    let botonTierra = document.getElementById('boton-tierra') ;
     botonTierra.addEventListener('click', ataqueTierra);
-    let botonReiniciar = document.getElementById('boton-reiniciar') ;
     botonReiniciar.addEventListener('click', reset);
 }
 
@@ -28,7 +72,7 @@ function reset(){
 
 function combate() {
     let ganador = false;
-    let liveEnemigo = document.getElementById('live-enemigo');
+
     if(ataqueJugador == "Fuego"&& ataqueAleatorioEnemigo == "Tierra"){
         ganador = true;
         --vidasEnemigo;
@@ -46,7 +90,6 @@ function combate() {
 }
 
 function crearMensaje() {
-    let live = document.getElementById('live');
     let parrafo = document.createElement('p');
     let mensajeGanador = "";
     
@@ -61,7 +104,6 @@ function crearMensaje() {
     }
 
     parrafo.innerHTML = `Tu mascota atacó con ${ataqueJugador}, las mascotas del enemigo atacó con ${ataqueAleatorioEnemigo} - ${mensajeGanador}`; 
-    let mensajes = document.getElementById('mensajes');
     mensajes.appendChild(parrafo);
     
     if(vidasJugador == 0){
@@ -94,12 +136,6 @@ function ataqueTierra(){
 }
 
 function selectMascotaPlayer() {
-    let hipoge = document.getElementById('hipoge');
-    let capipepo = document.getElementById('capipepo');
-    let langostelvis = document.getElementById('langostelvis');
-    let tucapalma = document.getElementById('tucapalma');
-    let pidos = document.getElementById('pidos');
-    let mascotaJugador = document.getElementById('name');
     let mascota = "";
     if(hipoge.checked){
         mascota = "hipoge";
@@ -124,7 +160,6 @@ function selectMascotaPlayer() {
 
 function selectMascotaEnemigo() {
     let ataqueAleatorio = aleatorio(1, 3);
-    let nameMascotaEnemigo = document.getElementById('name-mascota-enemigo');
      if(ataqueAleatorio == 1) {
         nameMascotaEnemigo.innerHTML = "Hipodope";
     }else if(ataqueAleatorio == 2) {
@@ -134,5 +169,8 @@ function selectMascotaEnemigo() {
     }
 }
 
+function aleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 window.addEventListener('load', iniciarJuego);
 

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOKEPON!</title>
-    <script src="./javascript/mokepon.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -14,22 +13,25 @@
         <h2>Elige tu mascota:</h2>
 
         <div class="tarjetas">
-            <label class="tarjeta-mokepon"for="hipoge">Hipoge</label>
-            <input type="radio" id="hipoge" name="mascota" />
+            <input type="radio" id="hipodoge" name="mascota" />
+            <label class="tarjeta-mokepon"for="hipodoge">
+                <p>Hipodoge</p>
+                <img src="./assert/mokepons_mokepon_hipodoge_attack.png" alt="hipodoge" width="50px">
+            </label>
     
-            <label class="tarjeta-mokepon"for="capipepo">Capipepo</label>
             <input type="radio" id="capipepo" name="mascota">
+            <label class="tarjeta-mokepon"for="capipepo">
+                <p>Capipepo</p>
+                <img src="./assert/mokepons_mokepon_capipepo_attack.png" alt="Capipepo" width="50px">
+            </label>
     
-            <label class="tarjeta-mokepon"for="langostelvis">Langostelvis</label>
-            <input type="radio" id="langostelvis" name="mascota">
-    
-            <label class="tarjeta-mokepon"for="tucapalma">Tucapalma</label>
             <input type="radio" id="tucapalma" name="mascota">
-    
-            <label class="tarjeta-mokepon"for="pidos">Pidos</label>
-            <input type="radio" id="pidos" name="mascota">
-    
+            <label class="tarjeta-mokepon"for="tucapalma">
+                <p>Ratigueya</p>
+                <img src="./assert/mokepons_mokepon_ratigueya_attack.png" alt="ratigueya" width="50px">
+            </label>
         </div>
+
         <button class= "btn btn-primary"id="boton-mascota">Seleccionar</button>
     </section>
 
@@ -61,4 +63,5 @@
    
     
 </body>
+<script src="./javascript/mokepon.js"> </script>
 </html>
