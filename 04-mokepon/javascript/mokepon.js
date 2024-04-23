@@ -5,12 +5,10 @@ const botonAgua = document.getElementById('boton-agua') ;
 const botonTierra = document.getElementById('boton-tierra') ;
 const botonReiniciar = document.getElementById('boton-reiniciar') ;
 
-const hipoge = document.getElementById('hipoge');
-const capipepo = document.getElementById('capipepo');
-const langostelvis = document.getElementById('langostelvis');
-const tucapalma = document.getElementById('tucapalma');
-const pidos = document.getElementById('pidos');
-const mascotaJugador = document.getElementById('name');
+let hipodoge;
+let capipepo;
+let ratigueya;
+
 
 const nameMascotaEnemigo = document.getElementById('name-mascota-enemigo');
 const mensajes = document.getElementById('mensajes');
@@ -18,29 +16,54 @@ const mensajes = document.getElementById('mensajes');
 const liveEnemigo = document.getElementById('live-enemigo');
 const live = document.getElementById('live');
 
+const contenedorTarjetas = document.getElementById("contenedor-tarjetas");
+
 let ataqueJugador = '';
 let ataqueAleatorioEnemigo = "";
 let vidasJugador = 3;
 let vidasEnemigo = 3;
+let opcionDeMokepones;
 
 class Mokemon{
     
     constructor(name, photo, vida) {
-        this._name = name;
-        this._photo = photo;
-        this._vida = vida;
+        this.name = name;
+        this.photo = photo;
+        this.vida = vida;
+        this.attack = [];
     }
 }
 
-let mokemonHipodoge = new Mokemon("hipodoge", "../assert/mokepons_mokepon_hipodoge_attack.png", 3);
-let mokemonCapipepo = new Mokemon("Capipepo", "../assert/mokepons_mokepon_capipepo_attack.png", 3);
-let mokemonRatigueya = new Mokemon("Ratigueya", "../assert/mokepons_mokepon_ratigueya_attack.png", 3);
+let mokemonHipodoge = new Mokemon("Hipodoge", "./assert/mokepons_mokepon_hipodoge_attack.png", 3);
+let mokemonCapipepo = new Mokemon("Capipepo", "./assert/mokepons_mokepon_capipepo_attack.png", 3);
+let mokemonRatigueya = new Mokemon("Ratigueya", "./assert/mokepons_mokepon_ratigueya_attack.png", 3);
 
+mokemonHipodoge._attack = [
+    {nombre: 'Agua 💦', id: 'button-agua'}, 
+    {nombre: 'Agua 💦', id: 'button-agua'},
+    {nombre: 'Agua 💦', id: 'button-agua'},
+    {nombre: 'Fuego 🔥', id: 'button-fuego'},
+    {nombre: 'Tierra 🌴', id: 'button-tierra'},
+]
+
+mokemonCapipepo._attack = [
+    {nombre: 'Tierra 🌴', id: 'button-tierra'},
+    {nombre: 'Tierra 🌴', id: 'button-tierra'},
+    {nombre: 'Tierra 🌴', id: 'button-tierra'},
+    {nombre: 'Fuego 🔥', id: 'button-fuego'},
+    {nombre: 'Agua 💦', id: 'button-agua'},
+]
+
+mokemonRatigueya._attack = [
+    {nombre: 'Fuego 🔥', id: 'button-fuego'},
+    {nombre: 'Fuego 🔥', id: 'button-fuego'},
+    {nombre: 'Fuego 🔥', id: 'button-fuego'},
+    {nombre: 'Agua 💦', id: 'button-agua'},
+    {nombre: 'Tierra 🌴', id: 'button-tierra'},
+]
 let mokepones = [];
 mokepones = [...mokepones, mokemonHipodoge, mokemonCapipepo, mokemonRatigueya ];
 
-
-console.log(mokepones);
 
 
 
@@ -59,11 +82,27 @@ console.log(mokepones);
 
 
 function iniciarJuego() {
+
+    mokepones.forEach(mokepon => {
+        opcionDeMokepones = `
+            <input type="radio" id=${mokepon.name} name="mascota" />
+            <label class="tarjeta-mokepon"for=${mokepon.name}>
+                <p>${mokepon.name}</p>
+                <img src=${mokepon.photo} alt=${mokepon.name}>
+            </label>
+        `;
+        contenedorTarjetas.innerHTML += opcionDeMokepones;
+    });
+
+    hipodoge = document.getElementById('Hipodoge');
+    capipepo = document.getElementById('Capipepo');
+    ratigueya = document.getElementById('Ratigueya');
     botonMascota.addEventListener('click', selectMascotaPlayer);
-    botonFuego.addEventListener('click', ataqueFuego);
-    botonAgua.addEventListener('click', ataqueAgua);
-    botonTierra.addEventListener('click', ataqueTierra);
-    botonReiniciar.addEventListener('click', reset);
+
+    // botonFuego.addEventListener('click', ataqueFuego);
+    // botonAgua.addEventListener('click', ataqueAgua);
+    // botonTierra.addEventListener('click', ataqueTierra);
+    // botonReiniciar.addEventListener('click', reset);
 }
 
 function reset(){
@@ -137,20 +176,14 @@ function ataqueTierra(){
 
 function selectMascotaPlayer() {
     let mascota = "";
-    if(hipoge.checked){
-        mascota = "hipoge";
+    if(hipodoge.checked){
+        mascota = "Hipodoge";
         mascotaJugador.innerHTML = mascota;
     }else if(capipepo.checked){
-        mascota = "capipepo";
+        mascota = "Capipepo";
         mascotaJugador.innerHTML = mascota;
-    }else if(langostelvis.checked) {
-        mascota = "langostelvis";
-        mascotaJugador.innerHTML = mascota;
-    }else if(tucapalma.checked) {
-        mascota = "tucapalma";
-        mascotaJugador.innerHTML = mascota;
-    }else if(pidos.checked) {
-        mascota = "pidos";
+    }else if(ratigueya.checked) {
+        mascota = "Ratigueya";
         mascotaJugador.innerHTML = mascota;
     }else{
         alert("selecciona una mascota");
