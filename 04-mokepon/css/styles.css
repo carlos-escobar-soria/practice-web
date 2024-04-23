@@ -1,5 +1,14 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
     background-color: #121481;
+    font-family: "poppins", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
 h2 {
     color: white;
@@ -14,9 +23,9 @@ h2 {
     align-items: center;
 }
 .titulo {
-    color: white;    
+    color: white;  
 }
-
+/* para el subtitulo se maneja multiplos de 4 */
 .content-flex-center {
     display: flex;
     flex-direction: column;
@@ -42,6 +51,7 @@ h2 {
     margin: 10px;
     padding: 10px;
     border-radius: 20px ;
+    color: white;
     /* background-color: transparent; */
 
 }
@@ -51,7 +61,6 @@ img {
     margin-left: 15px;
 }
 
-
 input {
     display: none;
 }
@@ -59,18 +68,35 @@ input {
 input:checked + label {
     background-color: #5d8bf4;
 }
-
+/* los botones tienen su propia tipografia */
 .btn{
     width: 25%;
     padding: 1%;
-    border: none;
+    border: white 1px solid;
     border-radius: 50px;
 }
 .btn-primary{
-    background-color: skyblue;
+    background-color: transparent;
     color : white;
+    font-family: "Fredoka", sans-serif;
+    margin-top: 20px;
 }
 .tarjetas {
     display:flex;
     gap:10px
+}
+
+#select-attack {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque{
+    background-color: #11468F;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border-color: transparent;
+    width: 100px;
 }
